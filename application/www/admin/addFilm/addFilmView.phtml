@@ -1,0 +1,43 @@
+<?php if($flashBag -> hasMessages()): ?>
+    <?php while($message = $flashBag -> fetchMessage()): ?>
+        <div class="alert alert-danger" role="alert">
+            <?php echo $message ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endwhile ?>
+<?php endif ?>
+
+<header class="admin-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="<?= $requestUrl ?>/admin">Administration</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mr-0">
+                <li class="nav-item active">
+                    <a href="<?= $requestUrl ?>/admin/addSeance">Ajouter une séance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/addFilm">Ajouter un film</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/background">Modifier l'arriere plan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/logout" id="disconnect">Se déconnecter</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main id="proposition_films" class="bg-white text-dark">
+    <h2 class="text-center p-3">selections de films à venir</h2>
+    <div id="movies_content" class="filmsDB">
+
+    </div>
+
+</main>

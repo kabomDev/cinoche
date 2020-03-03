@@ -1,0 +1,75 @@
+
+<?php if($flashBag -> hasMessages()): ?>
+    <?php while($message = $flashBag -> fetchMessage()): ?>
+        <div class="alert alert-primary" role="alert">
+            <?php echo $message ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endwhile ?>
+<?php endif ?>
+
+<header class="admin-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="<?= $requestUrl ?>/admin">Administration</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mr-0">
+                <li class="nav-item active">
+                    <a href="<?= $requestUrl ?>/admin/addSeance">Ajouter une séance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/addFilm">Ajouter un film</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/background">Modifier l'arriere plan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/logout" id="disconnect">Se déconnecter</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="admin-content bg-white">
+    <aside class="p-3">
+        <h3 class="mt-0">Liste des films bientôt à l'affiche</h3>
+        <ul>
+        <?php foreach($films as $film): ?>
+            <li>
+                <span><?=$film['title'] ?>:</span>
+                <span class="text-danger">sortie prochaine: <?=$film['date_sortie'] ?></span>
+            </li>
+        <?php endforeach ?>
+        </ul>
+    </aside>
+    <hr>
+    <section id="displaySeances">
+        <h2>Liste des films en salles</h2>
+        <form action="#" method="POST" class="text-center">
+            <label for="date">Choisissez une date</label>
+            <input id="date" type="date" name="date" value="<?= $date ?>" min="<?= $date ?>" max="2020-12-31" class="select-date">
+        </form>
+    
+        <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">film</th>
+            <th scope="col">salle</th>
+            <th scope="col">heure de début</th>
+            <th scope="col">durée du film</th>
+            <th scope="col">modifier</th>
+            <th scope="col">supprimer</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+
+        </tbody>
+        </table>
+
+    </section>
+</main>

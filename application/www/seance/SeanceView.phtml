@@ -1,0 +1,55 @@
+<div class="retour">
+    <a href="<?= $requestUrl ?>"><i class="fas fa-arrow-left"></i> retour à l'accueil</a>
+</div>
+
+<main id="seance-view">
+    <article class="container">   
+        <div class="seance-picture">
+            <h2><?= $film['title'] ?></h2>
+            <div id="img-film">
+                <img src="<?= $wwwUrl ?>/images/films/<?=htmlspecialchars($film['picture'])?>" alt="<?= $film['title'] ?>">
+            </div>
+            <div id="description">
+                <?php if($film['status'] == 'prochainement'): ?>
+                    <h3>Dans vos salles à partir du: <span><?= utf8_encode(strftime('%A %d %B', strtotime($film['date_sortie']))) ?></span></h3>
+                <?php endif ?>
+                <p><?= $film['content'] ?></p>
+                <p>durée du film: <?= htmlspecialchars($film['duration'])?></p>
+            </div>
+        </div>
+        <div class="seance-description">
+            
+            <!--affichage des jours-->
+            
+            <?php if($film['status'] == 'en ligne'): ?>
+            <div class="button-seance">
+                <?php for($i = 0; $i < 7; $i++): ?>
+                    <?php $dateN1 = date('d-m-Y', strtotime("$date + $i day")) ?>
+                    <?php $dateLong = utf8_encode(strftime('%a %d %b', strtotime("$dateN1"))) ?>
+                    <button type="button" class="seanceDay btn" data-date="<?= htmlspecialchars($dateN1) ?>" data-id="<?= htmlspecialchars($film['id']) ?>"><?= $dateLong ?></button>
+                <?php endfor ?>
+            </div>
+                <!--affichage des séances par rapport aux jours-->
+                
+                <h3>Séances:</h3>
+                <div id="seances">
+                    <ul>
+                        <?php foreach($seances as $seance): ?>
+                            <?php if($date == $seance['date_seance'] && $currentTime < $seance['debut_seance']): ?>
+                                <li><?= htmlspecialchars($seance['debut_seance']) ?></li>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                    </ul> 
+                </div>  
+            <?php endif ?>
+            <div class="video-link">
+                <a href="<?=htmlspecialchars($film['video']) ?>" target="_blank">voir un extrait</a>
+            </div>
+        </div>
+    </article>
+</main>
+
+
+
+
+

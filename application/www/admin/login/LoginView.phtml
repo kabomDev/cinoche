@@ -1,0 +1,22 @@
+
+<main id="login-page">
+    <h1 class="text-center">Login</h1>
+    <form class="log-admin" action="" method="post" class="form-group">
+        <div>
+            <label for="userName">Taper votre nom d'utilisateur</label>
+            <input type="text" name="userName" value="" class="form-control">
+            <small class="text-danger"><?php if(!empty($error['userName'])){echo $error['userName'];} ?></small>
+        </div>
+
+        <div>
+            <label for="password">Taper votre mot de passe</label>
+            <input type="password" name="password" value="" class="form-control">
+            <small class="text-danger"><?php if(!empty($error['password'])){echo $error['password'];} ?></small>
+        </div>
+
+        <div>
+            <button class="login-submit" type="submit">Se connecter</button>
+        </div>
+
+    </form>
+</main>

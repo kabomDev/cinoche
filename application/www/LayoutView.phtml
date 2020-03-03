@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Au Cinoche - cinéma de quartier</title>
+    <meta name="description" content="Au cinoche | toutes les séances et films à venir">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
+
+    <!-- Feuilles de styles de l'application -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize.css">
+    <link rel="stylesheet" media="screen" href="<?= $wwwUrl ?>/css/admin.css">
+    <link rel="stylesheet" media="screen" href="<?= $wwwUrl ?>/css/style.css">
+    <link rel="stylesheet" media="screen" href="<?= $wwwUrl ?>/css/bg.css">
+    
+    
+    <!-- JavaScript de l'application -->
+    <script src="https://kit.fontawesome.com/695c1ba135.js" crossorigin="anonymous"></script>
+    <script src="<?= $wwwUrl ?>/js/class/SearchBar.js"></script>
+    <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+</head>
+
+<body>
+
+    <!-- Affichage du template lié à la vue -->
+    <?php include $this->viewData['template'] ?>
+
+    <!-- Pied de page commun -->
+    <footer>
+        <small>site réalisé par &copy; yonghoua_kabom</small>   
+    </footer>
+
+<!-- Code principal JavaScript de l'application -->
+<!--bootstrap et jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+<script src="<?= $wwwUrl ?>/js/class/SeanceList.js"></script>
+<script src="<?= $wwwUrl ?>/js/class/SearchSeance.js"></script>
+<script src="<?= $wwwUrl ?>/js/class/AdminSeanceByDate.js"></script>
+<script src="<?= $wwwUrl ?>/services/js/MoviesDB.js"></script>
+<script src="<?= $wwwUrl ?>/js/main.js"></script>
+
+</body>
+</html>

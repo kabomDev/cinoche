@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Au Cinoche - cinéma de quartier</title>
+
+    <style>
+        body
+        {
+            /* structure */
+            line-height: 1.5em;
+            margin: 0 auto;
+            padding-top: 2em;
+            width: 85%;
+
+            /* presentation */
+            text-align: center;
+        }
+
+        p
+        {
+            margin: 2em 0;
+        }
+
+        .fatal
+        {
+            color: #EF4036;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="fatal"><i class="fa fa-warning"></i> ERREUR FATALE DANS VOTRE CODE <i class="fa fa-warning"></i></h1>
+    <p><?= $_fatalErrorMessage ?></p>
+    <p><img src="<?= $wwwUrl ?>/images/error.jpg" alt="Fatal Error"></p>
+</body>
+</html>

@@ -1,0 +1,336 @@
+body{
+    background-color: #fff;
+    margin: 0 auto;
+    color: rgb(241, 241, 241);
+    max-width: 1500px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+
+footer{
+    padding: 1.5em;
+    background-color: rgb(19, 19, 19);
+    opacity: 0.95;
+    text-align: center;
+}
+
+footer small{
+    color: rgb(87, 87, 87);
+}
+
+/*======== USER HOME VIEW ==========*/
+/*********nav***********/
+#home-nav{
+    background-color: rgb(19, 19, 19);
+    margin-bottom: 1em;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.95;
+
+}
+
+#logo a{
+    color: rgb(255, 132, 60);
+    font-size: 1.5rem;
+    font-family: 'Shrikhand', cursive;
+    text-shadow: 4px 2px 5px #310000;
+}
+
+#logo a:hover{
+    text-decoration: none;
+}
+
+#search-form input, #btn-search{
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+}
+
+#btn-search{
+    margin-left: 1em;
+}
+
+/*********section***********/
+.news{
+    width: 90%;
+    height: 550px;
+    margin: 3em auto;
+    padding: 2em;
+    background-color: rgb(19, 19, 19);
+    border-radius: 5px;
+    box-shadow: 6px 6px 18px 2px rgb(0, 0, 0);
+    opacity: 0.95;
+    overflow: hidden; 
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.news h2{
+    margin-bottom: 0.5em;
+    padding: 0.5em 0;
+    text-align: center;
+    color: rgb(255, 251, 242);
+}
+
+.news h3{
+    font-size: 1.2rem;
+}
+
+.news img{
+    width: 100%;
+}
+
+.news ul{
+    padding: 0;
+    text-align: center; 
+    
+    
+}
+
+.news li{
+    width: 100%;
+    margin-bottom: 2em;
+    list-style: none;
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+/*======== USER SEANCE VIEW ==========*/
+.retour{
+    padding: 1em;
+}
+
+.seance-picture{
+    text-align: justify;
+    margin: 0.5em;
+}
+
+.seance-picture h2{
+    color: rgb(255, 196, 34);
+}
+
+.seance-picture img{
+    width: 100%;
+    margin: 1em 0;
+}
+
+#description p{
+    color: black;
+}
+
+.button-seance{
+    text-align: center;
+}
+
+.seanceDay{
+    width: 130px;
+    height: 40px;
+    margin: 0.5em 0.2em;
+    border: 1px solid rgb(65, 65, 65);
+    background-color: rgb(255, 196, 34);
+    color: rgb(34, 34, 34);
+    font-weight: bold;
+    text-align: justify;
+}
+
+.seanceDay:focus{
+    border: 2px solid #fff;
+}
+
+h3{
+    margin-top: 2em;
+    font-size: 1.3rem;
+}
+
+#seances li{
+    list-style: none;
+    display: inline-block;
+    padding-right: 1em;
+}
+
+.video-link{
+    padding: 1em;
+    width: 100%;
+    background-color: rgb(255, 196, 34);
+    border-radius: 3px;
+}
+
+.video-link a{
+    color: rgb(34, 34, 34);
+}
+
+/*============================================*/
+/*===============TABLETTE=====================*/
+/*============================================*/
+@media screen and (min-width: 667px) and (max-width: 1024px)
+{
+    /*======== USER HOME VIEW ==========*/
+    #home-nav{
+        flex-direction: row;
+    }
+
+    .news{
+        width: 90%;
+        height: 500px;
+        margin: 3em auto;
+        padding: 1em;
+        border-radius: 5px;
+        box-shadow: 6px 6px 18px 2px rgb(0, 0, 0);
+    }
+
+    .news h3{
+        font-size: 1rem;
+    }
+
+    .news ul{
+        padding: 0;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+    .news li{
+        margin: 0.5em;
+        list-style: none;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .news img{
+        width: 150px;
+        height: 200px;
+        transition: ease 0.5s;
+        
+    }
+
+    .news img:hover{
+        box-shadow: 6px 6px 18px 2px rgb(0, 0, 0);
+    }
+
+    /*======== USER SEANCE VIEW ==========*/ 
+    .seance-picture img{
+        width: 70%;
+    }
+    
+    #img-film{
+        width: 50%;
+        float: left;
+    }
+
+    #description{
+        width: 50%;
+        float: right;
+    }
+
+    #description h3{
+        margin-top: 1em;
+        color: rgb(24, 104, 124);
+    }
+
+    .seance-description{
+        clear: both;
+    }
+    
+    
+}
+
+/*============================================*/
+/*===============DESKTOP=====================*/
+/*============================================*/
+
+@media screen and (min-width: 1025px)
+{
+    body{
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;
+        background-size: cover;
+    }
+
+    #logo a{
+        font-size: 2.5rem;
+    }
+
+    .news{
+        min-height: 450px;
+        overflow: visible; 
+        overflow-y: hidden;
+    }
+
+    .news ul{
+        display: flex;
+    }
+
+    .news li{
+        width: 15%;
+        margin: 1em;
+    }
+
+    .news img{
+        max-width: 150px;
+        max-height: 200px;   
+    }
+
+    /*======== USER SEANCE VIEW ==========*/
+    .container{
+        padding: 1em;
+    }
+    
+    #seance-view{
+        background-color: rgb(19, 19, 19);
+    }
+
+    #img-film{
+        width: 30%;
+        float: left;
+    }
+
+    #description{
+        width: 70%;
+        margin: 1em 0;
+        float: right;
+    }
+
+    #description p{
+        color: #fff;
+    }
+
+    .seance-picture img{
+        width: 70%;
+    }
+
+    #description h3{
+        margin-top: 1em;
+        color: rgb(24, 104, 124);
+    }
+
+    .seance-description{
+        clear: both;
+    }
+
+    .seanceDay{
+        margin: 0.5em 0.1em;
+    }
+
+    .video-link{
+        margin-top: 2em;
+        width: 50%;
+        padding: 0.5em;
+    }
+
+}

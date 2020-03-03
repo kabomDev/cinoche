@@ -1,0 +1,5 @@
+# Ignore files called '.htaccess'
+.htaccess
+
+# Ignore files called 'database.php'
+/application/config/database*

@@ -1,0 +1,63 @@
+<!-- Message de notification -->
+<?php if($flashBag -> hasMessages()): ?>
+    <?php while($message = $flashBag -> fetchMessage()): ?>
+        <div class="alert alert-primary" role="alert">
+            <?php echo $message ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endwhile ?>
+<?php endif ?>
+
+<nav id="home-nav">
+    <div id="logo">
+        <a href="<?= $requestUrl ?>">
+        Au Cinoche
+        </a>
+    </div>
+    <form id="search-form">
+        <input type="text" id="search" aria-label="search" name="search" placeholder="rechercher...">
+        <button id="btn-search" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</nav>
+
+<main>
+    <section id="actu" class="news">
+        <h2>Films à l'affiche</h2>
+            <ul>
+                <?php foreach($films as $film): ?>
+                        <?php if($film['status'] == 'en ligne'): ?>
+                            <li>
+                                <a href="<?= $requestUrl ?>/seance?film_id=<?=htmlspecialchars($film['id'])?>">
+                                    <img src="<?= $wwwUrl ?>/images/films/<?=htmlspecialchars($film['picture'])?>" alt="<?= htmlspecialchars($film['title']) ?>">
+                                </a>
+                                <h3><?= htmlspecialchars($film['title']) ?></h3>
+                            </li>
+                        <?php endif ?>
+                    <?php endforeach ?>
+            </ul>
+    </section>
+
+    <section id="prev" class="news">
+        <h2>Prochainement dans vos salles</h2>  
+        <figure>
+            <div class="block-slider">
+                <div id="preview" class="img-slider-inFuture">
+                    <ul>
+                        <?php foreach($films as $film): ?>
+                            <?php if($film['status'] == 'prochainement'): ?>
+                                <li>
+                                    <a href="<?= $requestUrl ?>/seance?film_id=<?=htmlspecialchars($film['id'])?>"><img src="<?= $wwwUrl ?>/images/films/<?=htmlspecialchars($film['picture'])?>" alt="<?= htmlspecialchars($film['title']) ?>"></a>
+                                    <h3><?=htmlspecialchars($film['title'])?></h3>
+                                </li>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+        </figure>
+    </section>
+</main>
+
+

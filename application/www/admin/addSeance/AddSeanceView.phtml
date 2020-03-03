@@ -1,0 +1,65 @@
+<header class="admin-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="<?= $requestUrl ?>/admin">Administration</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mr-0">
+                <li class="nav-item active">
+                    <a href="<?= $requestUrl ?>/admin/addSeance">Ajouter une séance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/addFilm">Ajouter un film</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/background">Modifier l'arriere plan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/logout" id="disconnect">Se déconnecter</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="bg-white text-dark pb-5">
+    <h2 class="text-center p-3">Ajouter une séance</h2>
+
+    <form method="POST" class="addFilm">
+        <div>
+            <label for="filmTitle">Titre</label>
+            <select id="filmTitle" class="select-film form-control" name="id_film">
+                <?php foreach($films as $film): ?>  
+                    <option value="<?=$film['id']?>"><?=$film['title']." - ".$film['date_sortie']?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        <div>
+          <label for="salle">Salle</label>
+          <select id="salle" class="select-salle form-control" name="id_salle">
+                <?php foreach($salles as $salle): ?>  
+                    <option value="<?=$salle['id']?>"><?=$salle['id']?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        <div>
+          <label for="dateSeance">Date</label>
+          <input id="dateSeance" class="select-date form-control" type="date" name="dateSeance" value="<?= $currentDate ?>" min="<?= $currentDate ?>" max="2020-12-31">
+        </div>
+
+        <div class="admin-btn-submit">
+            <button id="searchFilmSeance" type="button">Chercher les heures disponibles</button>
+        </div>
+
+        <fieldset id="block-seances" class="hidden">
+        
+        </fieldset>
+        
+        <button id="create-seance" type="button" class="hidden">Créer séance(s)</button>
+    </form>
+    
+    
+    
+    
+</main>

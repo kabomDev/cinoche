@@ -1,0 +1,61 @@
+<header class="admin-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="<?= $requestUrl ?>/admin">Administration</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mr-0">
+                <li class="nav-item active">
+                    <a href="<?= $requestUrl ?>/admin/addSeance">Ajouter une séance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/addFilm">Ajouter un film</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/background">Modifier l'arriere plan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= $requestUrl ?>/admin/logout" id="disconnect">Se déconnecter</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="bg-white text-dark">
+    <h2 class="text-center p-3">Modifier la séance</h2>
+
+    <form action="" method="POST" class="edit-seance">
+        <div>
+            <input type="hidden" id="seance_id" name="id" value="<?=$seance['id'] ?>">
+            <label for="title">Titre</label>
+            <select id="title" class="form-control" name="id_film">
+            <option value="<?=htmlspecialchars($seance['id_film'])?>" selected><?=htmlspecialchars($seance['title'])?></option>
+                <?php foreach($films as $film): ?>
+                    <?php if($film['status'] == 'en ligne'): ?>
+                    <option value="<?=htmlspecialchars($film['id'])?>"><?=htmlspecialchars($film['title'])?></option>
+                    <?php endif ?>
+                <?php endforeach ?>
+            </select>
+        
+            <label for="date">Jour de la séance</label>
+            <input type="date" class="form-control" name="date_seance" value="<?=htmlspecialchars($seance['date_seance'])?>">
+        </div>
+        <div>
+            <label for="salle">Salle</label>
+            <select id="salle" class="form-control" name="id_salle">
+                <?php foreach($salles as $salle): ?>
+                    <option value="<?=htmlspecialchars($salle['id'])?>"><?=htmlspecialchars($salle['id'])?></option>
+                <?php endforeach ?>
+            </select>
+
+            <label for="appt">Début de la séance</label>
+            <input type="time" class="form-control" id="hours" name="debut_seance" min="01:00" max="24:00" value="<?=$seance['debut_seance'] ?>">
+            <small class="text-danger"><?php if(!empty($error['debut_seance'])){echo $error['debut_seance'];} ?></small>
+        </div>
+        <div class="admin-btn-submit">
+            <button id="saveSeance" type="submit">Modifier</button>
+        </div>
+    </form>
+</main>
