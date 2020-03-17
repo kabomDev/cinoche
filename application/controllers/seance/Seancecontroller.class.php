@@ -7,25 +7,37 @@ class SeanceController
         //change le type en entier pour recuperer l'id du film
         $filmId = intval($queryFields['film_id']);
 
-        //film
-        $filmModel = new FilmModel;
-        $film = $filmModel->FindFilmById($filmId);
-
-        $seanceModel = new SeanceModel;
-        $seances = $seanceModel->FindSeancesByFilmId($filmId);
+        if(is_int($filmId) && $filmId !== 0)
+        {
+            //film
+            $filmModel = new FilmModel;
+            $film = $filmModel->FindFilmById($filmId);
+            if($film)
+            {
+                $seanceModel = new SeanceModel;
+                $seances = $seanceModel->FindSeancesByFilmId($filmId);
+    
+                //date et heure actuelle
+                date_default_timezone_set('Europe/Paris');
+                setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']);
+                $date = date('d-m-Y');
+                $currentTime = date("H:i");
+    
+                //retourne les variables pour pouvoir les utiliser dans la view
+                return ['film'=> $film,
+                        'seances'=>$seances,
+                        'currentTime' => $currentTime,
+                        'date' => $date,
+                        ];
+            }
+            $http->redirectTo('/');
+            
+        }
+        else {
+            $http->redirectTo('/');
+        }
         
-        //date et heure actuelle
-        date_default_timezone_set('Europe/Paris');
-        setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']);
-        $date = date('d-m-Y');
-        $currentTime = date("H:i");
-
-        //retourne les variables pour pouvoir les utiliser dans la view
-        return ['film'=> $film,
-                'seances'=>$seances,
-                'currentTime' => $currentTime,
-                'date' => $date,
-                ];
+        
 
     }
 

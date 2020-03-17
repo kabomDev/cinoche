@@ -2,4 +2,4 @@
 .htaccess
 
 # Ignore files called 'database.php'
-/application/config/database*
+#/application/config/database*
